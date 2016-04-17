@@ -18,6 +18,16 @@ function letterToHex(letter) {
     return hexEncoding;
 }
 
+function letterToXHex(letter) {
+    var hexCode = letterToCharCode(letter).toString(16);
+    var hexEncoding = "\\x" + hexCode;
+    return hexEncoding; 
+}
+
+function phraseToBase64(phrase) {
+    return btoa(phrase);
+}
+
 function addZerosToPhrase(numZeros, phrase) {
     var newPhrase = phrase + ""; 
     for (; numZeros > 0; numZeros--) {
