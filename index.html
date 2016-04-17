@@ -8,6 +8,9 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>XSS Phrase Encoder</title>
+	
 </head>
 
 <body class="teal">
@@ -15,22 +18,59 @@
 	<div class="row"></div>
 	<div class="row"></div>
 
-	<div class="container teal ">
+	<div class="container teal">
 		<div class="row">
 			<div class="col s12">
-				<div class="card large white z-depth-3">
+				<div class="card white z-depth-3">
 					<div class="card-content teal-text">
-						<span class="card-title">Card Title</span>
-						<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little
-							markup to use effectively.</p>
+						<span class="card-title">XSS Phrase Encoder</span>
+						<p>Convert phrases to their different unicode representations, such as decimal and hex encodings. The translation happens as you type
+							and will automatically populate the other fields. White spaces are included.
+						</p>
 					</div>
-					<div class="card-content">
+					<div id="encodingTypes" class="card-content">
 						<div class="row">
 							<form class="col s12">
 								<div class="row">
 									<div class="input-field col s12">
+										<textarea id="originalText" class="materialize-textarea"></textarea>
+										<label class="active" for="originalText">Original Text</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="decimalEncoding" class="materialize-textarea"></textarea>
+										<label class="active" for="decimalEncoding">Decimal Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
 										<textarea id="htmlEncodingArea" class="materialize-textarea"></textarea>
-										<label class="active" for="htmlEncodingArea">HtmlEncoding</label>
+										<label class="active" for="htmlEncodingArea">Html Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="uriEncodingArea" class="materialize-textarea"></textarea>
+										<label class="active" for="uriEncodingArea">URI Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="hexUEncodingArea" class="materialize-textarea"></textarea>
+										<label class="active" for="hexUEncodingArea">Hex U Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="hexXEncodingArea" class="materialize-textarea"></textarea>
+										<label class="active" for="hexXEncodingArea">Hex X Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="base64Encoding" class="materialize-textarea"></textarea>
+										<label class="active" for="base64Encoding">Base 64 Encoding</label>
 									</div>
 								</div>
 							</form>
@@ -41,4 +81,5 @@
 		</div>
 	</div>
 </body>
+
 </html>
