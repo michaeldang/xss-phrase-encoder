@@ -5,8 +5,6 @@ $(document).ready(function() {
     });
 });
 
-
-
 function alterText(text) {
     var letters = text.split('');
     var charCodeText = buildCharCodeEncodedPhrase(letters);
