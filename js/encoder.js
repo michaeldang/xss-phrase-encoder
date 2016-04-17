@@ -1,17 +1,21 @@
-function letterToCharCode(letter) {
+function letterToDecimalCode(letter) {
     return letter.charCodeAt(0);
 }
 
 function letterToHTML(letter) {
-    var charCode = letterToCharCode(letter);
+    var charCode = letterToDecimalCode(letter);
     var numZeros = 5 - charCode.toString().length;
     var charCodeWithZeros =  addZerosToPhrase(numZeros, charCode);
     var htmlEncoding = "&#" + charCodeWithZeros + ";";
     return htmlEncoding;
 }
 
-function letterToHex(letter) {
-    var hexCode = letterToCharCode(letter).toString(16);
+function letterToUri(letter) {
+    return encodeURI(letter);
+}
+
+function letterToUHex(letter) {
+    var hexCode = letterToDecimalCode(letter).toString(16);
     var numZeros = 4 - hexCode.length;
     var hexCodeWithZeros = addZerosToPhrase(numZeros, hexCode);
     var hexEncoding = "\\u" + hexCodeWithZeros;
@@ -19,7 +23,7 @@ function letterToHex(letter) {
 }
 
 function letterToXHex(letter) {
-    var hexCode = letterToCharCode(letter).toString(16);
+    var hexCode = letterToDecimalCode(letter).toString(16);
     var hexEncoding = "\\x" + hexCode;
     return hexEncoding; 
 }
