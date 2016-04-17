@@ -6,8 +6,26 @@ function letterToHTML(letter) {
     var charCode = letterToCharCode(letter);
     var numZeros = 5 - charCode.toString().length;
     var charCodeWithZeros =  addZerosToPhrase(numZeros, charCode);
-    var decimalEncoding = "&#" + charCodeWithZeros + ";";
-    return decimalEncoding;
+    var htmlEncoding = "&#" + charCodeWithZeros + ";";
+    return htmlEncoding;
+}
+
+function letterToHex(letter) {
+    var hexCode = letterToCharCode(letter).toString(16);
+    var numZeros = 4 - hexCode.length;
+    var hexCodeWithZeros = addZerosToPhrase(numZeros, hexCode);
+    var hexEncoding = "\\u" + hexCodeWithZeros;
+    return hexEncoding;
+}
+
+function letterToXHex(letter) {
+    var hexCode = letterToCharCode(letter).toString(16);
+    var hexEncoding = "\\x" + hexCode;
+    return hexEncoding; 
+}
+
+function phraseToBase64(phrase) {
+    return btoa(phrase);
 }
 
 function addZerosToPhrase(numZeros, phrase) {
