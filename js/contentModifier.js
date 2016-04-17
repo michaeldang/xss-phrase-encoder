@@ -27,8 +27,14 @@ function setFieldsToReadOnly() {
 
 function copyValue() {
     $("textarea[id*='EncodingArea']").click(function() {
-        var id = $(this).attr("id").match(/.+?(?=EncodingArea)/);                    
-        Materialize.toast(id + " value copied to clickboard", 2000); 
+        var completeId = $(this).attr("id");
+        var shortId = completeId.match(/.+?(?=EncodingArea)/);
+        
+        var copyTextArea = document.getElementById(completeId);  
+        copyTextArea.select();
+        document.execCommand('copy');
+                            
+        Materialize.toast(shortId + " value copied to clickboard", 2000); 
     });
 }
 
