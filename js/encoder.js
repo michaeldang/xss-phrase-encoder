@@ -11,7 +11,7 @@ function letterToHTML(letter) {
 }
 
 function letterToUri(letter) {
-    return encodeURI(letter);
+    return encodeURIComponent(letter);
 }
 
 function letterToUHex(letter) {
