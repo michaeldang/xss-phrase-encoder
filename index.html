@@ -1,9 +1,87 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>XSS Phrase Encoder</title>
-    </head>
-    <body>
-    </body>
-</html>
 
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/encoder.js"></script>
+	<script type="text/javascript" src="js/contentModifier.js"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	
+	<title>XSS Phrase Encoder</title>
+	
+</head>
+
+<body class="teal">
+	<div class="row"></div>
+	<div class="row"></div>
+	<div class="row"></div>
+
+	<div class="container teal">
+		<div class="row">
+			<div class="col s12">
+				<div class="card white z-depth-3">
+					<div class="card-content teal-text">
+						<span class="card-title">XSS Phrase Encoder</span>
+						<p>Convert phrases to their different unicode representations, such as decimal and hex encodings. The translation happens as you type
+							and will automatically populate the other fields. White spaces are included.
+						</p>
+					</div>
+					<div id="encodingTypes" class="card-content">
+						<div class="row">
+							<form class="col s12">
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="originalText" class="materialize-textarea"></textarea>
+										<label for="originalText">Original Text</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="charCodeEncodingArea" class="materialize-textarea"> </textarea>
+										<label for="charCodeEncodingArea">Char Code Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="htmlEncodingArea" class="materialize-textarea"> </textarea>
+										<label for="htmlEncodingArea">Html Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="uriEncodingArea" class="materialize-textarea"> </textarea>
+										<label for="uriEncodingArea">URI Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="hexUEncodingArea" class="materialize-textarea"> </textarea>
+										<label for="hexUEncodingArea">Hex U Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="hexXEncodingArea" class="materialize-textarea"> </textarea>
+										<label for="hexXEncodingArea">Hex X Encoding</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<textarea id="base64EncodingArea" class="materialize-textarea" > </textarea>
+										<label for="base64EncodingArea">Base 64 Encoding</label>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
