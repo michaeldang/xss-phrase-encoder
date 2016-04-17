@@ -6,6 +6,8 @@
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/encoder.js"></script>
+	<script type="text/javascript" src="js/parser.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
@@ -33,14 +35,14 @@
 							<form class="col s12">
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea id="originalText" class="materialize-textarea"></textarea>
+										<textarea id="originalText" onchange="parseText(document.getElementById('originalText').value)" class="materialize-textarea"></textarea>
 										<label class="active" for="originalText">Original Text</label>
 									</div>
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea id="decimalEncoding" class="materialize-textarea"></textarea>
-										<label class="active" for="decimalEncoding">Decimal Encoding</label>
+										<textarea id="charCodeArea" class="materialize-textarea"></textarea>
+										<label class="active" for="charCodeArea">Char Code Encoding</label>
 									</div>
 								</div>
 								<div class="row">
@@ -69,8 +71,8 @@
 								</div>
 								<div class="row">
 									<div class="input-field col s12">
-										<textarea id="base64Encoding" class="materialize-textarea"></textarea>
-										<label class="active" for="base64Encoding">Base 64 Encoding</label>
+										<textarea id="base64EncodingArea" class="materialize-textarea"></textarea>
+										<label class="active" for="base64EncodingArea">Base 64 Encoding</label>
 									</div>
 								</div>
 							</form>
