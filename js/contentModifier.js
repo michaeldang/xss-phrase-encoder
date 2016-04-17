@@ -1,11 +1,36 @@
+var charCodeArea = "charCodeEncodingArea";
+var htmlEncodingArea = "htmlEncodingArea";
+var uriEncodingArea = "uriEncodingArea";
+var hexUEncodingArea = "hexUEncodingArea";
+var hexXEncodingArea = "hexXEncodingArea";
+var base64EncodingArea = "base64EncodingArea";
+
 $(document).ready(function() {
+    setFieldsToReadOnly();
+    
     $('#originalText').on('input', function() {
-    var text = document.getElementById("originalText").value;
-    alterText(text);
+        var text = document.getElementById("originalText").value;
+        alterText(text);
     });
+        
+    copyValue();
 });
 
+function setFieldsToReadOnly() {
+    $("#" + charCodeArea).prop("readonly",true);
+    $("#" + htmlEncodingArea).prop("readonly",true);
+    $("#" + uriEncodingArea).prop("readonly",true);
+    $("#" + hexUEncodingArea).prop("readonly",true);
+    $("#" + hexXEncodingArea).prop("readonly",true);
+    $("#" + base64EncodingArea).prop("readonly",true);
+}
 
+function copyValue() {
+    $("textarea[id*='EncodingArea']").click(function() {
+        var id = $(this).attr("id").match(/.+?(?=EncodingArea)/);                    
+        Materialize.toast(id + " value copied to clickboard", 2000); 
+    });
+}
 
 function alterText(text) {
     var letters = text.split('');
@@ -16,12 +41,12 @@ function alterText(text) {
     var xhexText = buildXHexEncodedPhrase(letters);
     var base64Text = buildBase64Phrase(text);
     
-    setFieldValToPhrase("charCodeArea", charCodeText);
-    setFieldValToPhrase("htmlEncodingArea", htmlText);
-    setFieldValToPhrase("uriEncodingArea", uriText);
-    setFieldValToPhrase("hexUEncodingArea", uhexText);
-    setFieldValToPhrase("hexXEncodingArea", xhexText);
-    setFieldValToPhrase("base64EncodingArea", base64Text);
+    setFieldValToPhrase(charCodeArea, charCodeText);
+    setFieldValToPhrase(htmlEncodingArea, htmlText);
+    setFieldValToPhrase(uriEncodingArea, uriText);
+    setFieldValToPhrase(hexUEncodingArea, uhexText);
+    setFieldValToPhrase(hexXEncodingArea, xhexText);
+    setFieldValToPhrase(base64EncodingArea, base64Text);
 }
 
 function setFieldValToPhrase(fieldName, phrase) {
