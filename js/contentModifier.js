@@ -1,4 +1,13 @@
-function parseText(text) {
+$(document).ready(function() {
+    $('#originalText').on('input', function() {
+    var text = document.getElementById("originalText").value;
+    alterText(text);
+    });
+});
+
+
+
+function alterText(text) {
     var letters = text.split('');
     var charCodeText = buildCharCodeEncodedPhrase(letters);
     var htmlText = buildHtmlEncodedPhrase(letters);
