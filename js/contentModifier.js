@@ -5,36 +5,43 @@ var hexUEncodingArea = "hexUEncodingArea";
 var hexXEncodingArea = "hexXEncodingArea";
 var base64EncodingArea = "base64EncodingArea";
 
-$(document).ready(function() {
+$(document).ready(function () {
     setFieldsToReadOnly();
-    
-    $('#originalText').on('input', function() {
+
+    $('#originalText').on('input', function () {
         var text = document.getElementById("originalText").value;
         alterText(text);
     });
-        
+
     copyValue();
 });
 
 function setFieldsToReadOnly() {
-    $("#" + charCodeArea).prop("readonly",true);
-    $("#" + htmlEncodingArea).prop("readonly",true);
-    $("#" + uriEncodingArea).prop("readonly",true);
-    $("#" + hexUEncodingArea).prop("readonly",true);
-    $("#" + hexXEncodingArea).prop("readonly",true);
-    $("#" + base64EncodingArea).prop("readonly",true);
+    $("#" + charCodeArea).prop("readonly", true);
+    $("#" + htmlEncodingArea).prop("readonly", true);
+    $("#" + uriEncodingArea).prop("readonly", true);
+    $("#" + hexUEncodingArea).prop("readonly", true);
+    $("#" + hexXEncodingArea).prop("readonly", true);
+    $("#" + base64EncodingArea).prop("readonly", true);
 }
 
 function copyValue() {
-    $("textarea[id*='EncodingArea']").click(function() {
-        var completeId = $(this).attr("id");
-        var shortId = completeId.match(/.+?(?=EncodingArea)/);
-        
-        var copyTextArea = document.getElementById(completeId);  
-        copyTextArea.select();
-        document.execCommand('copy');
-                            
-        Materialize.toast(shortId + " value copied to clickboard", 2000); 
+    $("textarea[id*='EncodingArea']").click(function () {
+        var fullId = $(this).attr("id");
+        var shortId = fullId.match(/.+?(?=EncodingArea)/);
+
+        var encodingField = document.getElementById(fullId);
+        encodingField.select();
+
+        try {
+            var copySuccess = document.execCommand('copy');
+            Materialize.toast(shortId + " value copied to clickboard", 2000);
+
+        } catch (error) {
+            Materialize.toast("Oops, there was an issue copying " + shortId, 2000);
+        }
+
+        encodingField.blur();
     });
 }
 
@@ -46,7 +53,7 @@ function alterText(text) {
     var uhexText = buildUHexEncodedPhrase(letters);
     var xhexText = buildXHexEncodedPhrase(letters);
     var base64Text = buildBase64Phrase(text);
-    
+
     setFieldValToPhrase(charCodeArea, charCodeText);
     setFieldValToPhrase(htmlEncodingArea, htmlText);
     setFieldValToPhrase(uriEncodingArea, uriText);
@@ -65,15 +72,15 @@ function buildCharCodeEncodedPhrase(letters) {
     if (letters.length > 0) {
         newPhrase = letterToDecimalCode(letters[0]);
         for (var index = 1; index < letters.length; index++) {
-            newPhrase = newPhrase + "," + letterToDecimalCode(letters[index]);        
-        }    
+            newPhrase = newPhrase + "," + letterToDecimalCode(letters[index]);
+        }
     }
     return newPhrase;
 }
 
 function buildHtmlEncodedPhrase(letters) {
     var newPhrase = "";
-    letters.forEach(function(letter) {
+    letters.forEach(function (letter) {
         newPhrase = newPhrase + letterToHTML(letter);
     }, this);
     return newPhrase;
@@ -81,7 +88,7 @@ function buildHtmlEncodedPhrase(letters) {
 
 function buildUriEncodedPhrase(letters) {
     var newPhrase = "";
-    letters.forEach(function(letter) {
+    letters.forEach(function (letter) {
         newPhrase = newPhrase + letterToUri(letter);
     }, this);
     return newPhrase;
@@ -89,7 +96,7 @@ function buildUriEncodedPhrase(letters) {
 
 function buildUHexEncodedPhrase(letters) {
     var newPhrase = "";
-    letters.forEach(function(letter) {
+    letters.forEach(function (letter) {
         newPhrase = newPhrase + letterToUHex(letter);
     }, this);
     return newPhrase;
@@ -97,7 +104,7 @@ function buildUHexEncodedPhrase(letters) {
 
 function buildXHexEncodedPhrase(letters) {
     var newPhrase = "";
-    letters.forEach(function(letter) {
+    letters.forEach(function (letter) {
         newPhrase = newPhrase + letterToXHex(letter);
     }, this);
     return newPhrase;
