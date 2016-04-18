@@ -58,6 +58,7 @@ function alterText(text) {
 function setFieldValToPhrase(fieldName, phrase) {
     var field = document.getElementById(fieldName);
     field.value = phrase;
+    $("#" + fieldName).trigger("autoresize");
 }
 
 function buildCharCodeEncodedPhrase(letters) {
