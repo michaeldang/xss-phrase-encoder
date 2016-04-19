@@ -3,6 +3,7 @@ var htmlEncodingArea = "htmlEncodingArea";
 var uriEncodingArea = "uriEncodingArea";
 var hexUEncodingArea = "hexUEncodingArea";
 var hexXEncodingArea = "hexXEncodingArea";
+var jsFuckEncodingArea = "jsFuckEncodingArea";
 var base64EncodingArea = "base64EncodingArea";
 
 $(document).ready(function () {
@@ -52,6 +53,7 @@ function alterText(text) {
     var uriText = buildUriEncodedPhrase(letters);
     var uhexText = buildUHexEncodedPhrase(letters);
     var xhexText = buildXHexEncodedPhrase(letters);
+    var jsFuckText = buildJsFuckPhrase(text);
     var base64Text = buildBase64Phrase(text);
 
     setFieldValToPhrase(charCodeArea, charCodeText);
@@ -59,6 +61,7 @@ function alterText(text) {
     setFieldValToPhrase(uriEncodingArea, uriText);
     setFieldValToPhrase(hexUEncodingArea, uhexText);
     setFieldValToPhrase(hexXEncodingArea, xhexText);
+    setFieldValToPhrase(jsFuckEncodingArea, jsFuckText);
     setFieldValToPhrase(base64EncodingArea, base64Text);
 }
 
@@ -108,6 +111,10 @@ function buildXHexEncodedPhrase(letters) {
         newPhrase = newPhrase + letterToXHex(letter);
     }, this);
     return newPhrase;
+}
+
+function buildJsFuckPhrase(text) {
+    return JSFuck.encode(text, true);
 }
 
 function buildBase64Phrase(text) {
