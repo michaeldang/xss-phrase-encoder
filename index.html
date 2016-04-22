@@ -7,13 +7,13 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 	<script type="text/javascript" src="js/encoder.js"></script>
-	<script type="text/javascript" src="js/jsFuckEncoder.js"></script> 
+	<script type="text/javascript" src="js/jsFuckEncoder.js"></script>
 	<script type="text/javascript" src="js/contentModifier.js"></script>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	
+
 	<title>XSS Phrase Encoder</title>
-	
+
 </head>
 
 <body class="teal">
@@ -27,8 +27,8 @@
 				<div class="card white z-depth-3">
 					<div class="card-content teal-text">
 						<span class="card-title">XSS Phrase Encoder</span>
-						<p>Convert phrases to their different unicode representations, such as decimal and hex encodings. The translation happens as you type
-							and will automatically populate the other fields. White spaces are included.
+						<p>Convert phrases to their different unicode representations, such as decimal and hex encodings. The translation happens
+							as you type and will automatically populate the other fields. White spaces are included.
 						</p>
 					</div>
 					<div id="encodingTypes" class="card-content">
@@ -40,49 +40,35 @@
 										<label for="originalText">Original Text</label>
 									</div>
 								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="charCodeEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="charCodeEncodingArea">Char Code Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="htmlEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="htmlEncodingArea">Html Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="uriEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="uriEncodingArea">URI Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="hexUEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="hexUEncodingArea">Hex U Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="hexXEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="hexXEncodingArea">Hex X Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="jsFuckEncodingArea" class="materialize-textarea"> </textarea>
-										<label for="jsFuckEncodingArea">JSFuck Encoding</label>
-									</div>
-								</div>
-								<div class="row">
-									<div class="input-field col s12">
-										<textarea id="base64EncodingArea" class="materialize-textarea" > </textarea>
-										<label for="base64EncodingArea">Base 64 Encoding</label>
-									</div>
-								</div>
 							</form>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">Char Code Encoding</p>
+								<p id="charCodeEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">Html Encoding</p>
+								<p id="htmlEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">URI Encoding</p>
+								<p id="uriEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">Hex U Encoding</p>
+								<p id="hexUEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">Hex X Encoding</p>
+								<p id="hexXEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">JSFuck Encoding</p>
+								<p id="jsFuckEncodingArea" class="encodingArea"> </p>
+							</div>
+							<div class="row col s12">
+								<p class="encodingAreaLabel">Base 64 Encoding</p>
+								<p id="base64EncodingArea" class="encodingArea"> </p>
+							</div>
 						</div>
 					</div>
 				</div>
